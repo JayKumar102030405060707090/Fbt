@@ -4,6 +4,9 @@ from pyrogram import Client
 from config import API_ID, API_HASH, BOT_TOKEN, SESSION_NAME
 from core.handler import setup_handlers
 from utils.logger import logger
+from pyrogram.errors import PeerIdInvalid, UserIsBlocked
+
+OWNER_ID = 7168729089  # Replace with your Telegram user ID
 
 bot = Client(SESSION_NAME, api_id=API_ID, api_hash=API_HASH, bot_token=BOT_TOKEN)
 
@@ -12,7 +15,15 @@ async def start_bot():
     await setup_handlers(bot)
     me = await bot.get_me()
     logger.info(f"Bot started as @{me.username}")
-    #await bot.send_message(int(OWNER_ID), f"✅ Bot started as @{me.username}")
+    
+    # Try to send startup message to the owner
+    try:
+        await bot.send_message(OWNER_ID, f"✅ Bot started as @{me.username}")
+    except PeerIdInvalid:
+        logger.warning("OWNER_ID is invalid or bot hasn't interacted with the owner.")
+    except UserIsBlocked:
+        logger.warning("Bot is blocked by the owner. Cannot send message.")
+
     await asyncio.Event().wait()  # Keeps the bot running
 
 async def shutdown(signal_name):
