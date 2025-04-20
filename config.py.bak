@@ -1,0 +1,11 @@
+import os
+from dotenv import load_dotenv
+
+load_dotenv()
+
+API_ID = int(os.getenv("API_ID", 12345))
+API_HASH = os.getenv("API_HASH", "your_api_hash")
+BOT_TOKEN = os.getenv("BOT_TOKEN", "your_bot_token")
+SESSION_NAME = os.getenv("SESSION_NAME", "auto_forwarder_bot")
+MONGO_URI = os.getenv("MONGO_URI", "mongodb://localhost:27017")
+SESSION_DIR = os.getenv("SESSION_DIR", "./sessions")

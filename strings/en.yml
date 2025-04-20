@@ -1,0 +1,13 @@
+start: "Welcome to AutoForwarder Bot! Use /authorize to begin."
+features: |
+  **Bot Features:**
+  • Secure login with phone number
+  • Set source/target by pinning
+  • Real-time auto-forwarding (copy, no tag)
+  • Supports all media types
+  • Filters: regex, hashtag, prepend/append
+  • Admin control panel
+  • Logs, localization, Docker/Heroku ready
+setup: "Please pin your source chat and send a message from it."
+filters_help: "Send filters in JSON format:\nExample:\n```{\"regex_replace\": {\"old\": \"new\"}, \"hashtags\": [\"#tag\"]}```"
+logout: "You have been logged out and your session was removed."

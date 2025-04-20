@@ -1,0 +1,33 @@
+{
+  "name": "Auto Forwarder Bot",
+  "description": "A powerful public Telegram message auto-forwarder bot.",
+  "repository": "https://github.com/your/repo",
+  "keywords": ["telegram", "forwarder", "bot", "telethon", "pyrogram"],
+  "buildpacks": [
+    {
+      "url": "heroku/python"
+    }
+  ],
+  "env": {
+    "API_ID": {
+      "description": "Telegram API ID",
+      "required": true
+    },
+    "API_HASH": {
+      "description": "Telegram API HASH",
+      "required": true
+    },
+    "BOT_TOKEN": {
+      "description": "Telegram Bot Token",
+      "required": true
+    },
+    "MONGO_URI": {
+      "description": "Your MongoDB URI",
+      "required": true
+    },
+    "OWNER_ID": {
+      "description": "Your Telegram user ID",
+      "required": true
+    }
+  }
+}
