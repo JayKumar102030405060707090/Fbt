@@ -12,7 +12,7 @@ async def start_bot():
     await setup_handlers(bot)
     me = await bot.get_me()
     logger.info(f"Bot started as @{me.username}")
-    await bot.send_message(int(OWNER_ID), f"✅ Bot started as @{me.username}")
+    #await bot.send_message(int(OWNER_ID), f"✅ Bot started as @{me.username}")
     await asyncio.Event().wait()  # Keeps the bot running
 
 async def shutdown(signal_name):
